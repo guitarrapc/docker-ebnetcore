@@ -1,1 +1,1 @@
-docker run --rm -p 8080:80 guitarrapc/ebnetcore
+docker run --rm -p 80:80 guitarrapc/ebnetcore
