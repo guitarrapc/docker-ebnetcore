@@ -3,7 +3,10 @@
     "containerDefinitions": [
         {
             "name": "ebnetcore",
-            "image": "guitarrapc/ebnetcore",
+            "image": {
+                "name": "guitarrapc/ebnetcore",
+                "update": "true"
+            },
             "essential": true,
             "portMappings": [
                 {
