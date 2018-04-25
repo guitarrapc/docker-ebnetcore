@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.1-sdk
+FROM microsoft/aspnetcore-build:2.0 as build
 WORKDIR /app
 
 # copy csproj and restore as distinct layers
@@ -8,4 +8,9 @@ RUN dotnet restore
 # copy and build everything else
 COPY src/. ./
 RUN dotnet publish -c Release -o out
-ENTRYPOINT ["dotnet", "out/ebnetcore.dll"]
+
+# build runtime image
+FROM microsoft/aspnetcore:2.0
+WORKDIR /app
+COPY --from=build /app/out .
+ENTRYPOINT ["dotnet", "ebnetcore.dll"]
