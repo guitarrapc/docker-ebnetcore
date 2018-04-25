@@ -1,0 +1,16 @@
+{
+    "AWSEBDockerrunVersion": 1,
+    "containerDefinitions": [
+        {
+            "name": "ebnetcore",
+            "image": "guitarrapc/ebnetcore",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ]
+        }
+    ]
+}
